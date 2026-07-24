@@ -1,0 +1,478 @@
+.body {
+
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-align: justify;
+font-size: 18px;
+color:#2a2b2a;
+
+
+}
+
+h1 {
+  font-size: 36px;
+  color: #3F3327;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h5 {
+  font-size: 28px;
+  color: #857e61;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.h52 {
+  font-size: 18px;
+  color: #524e3b;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.fw500 {
+  font-weight: 500;
+}
+
+.plt {
+  color: #F5BCA3
+  #ffffff
+  #157A6E
+  #3F3327
+  #008ecb
+  #857e61
+  #2a2b2a
+}
+
+.ch {
+
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 500;
+font-size: 24px;
+color: #3F3327;
+
+}
+
+
+.cc {color: #3F3327;
+font-weight: 500; font-size: 14px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;}
+
+
+.button3 {
+  display: flex;
+   margin: 20px;
+}
+
+.box3 {
+  
+  width: 22px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all .8s;
+  cursor: pointer;
+  position: relative;
+  background: #3F3327;
+  overflow: hidden;
+}
+
+.box3:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #00bfb3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  transition: transform .4s;
+}
+
+.box3:nth-child(2)::before {
+  transform: translateY(-100%);
+  content: 'S';
+}
+
+.box3:nth-child(3)::before {
+  content: 'H';
+}
+
+.box3:nth-child(4)::before {
+  transform: translateY(-100%);
+  content: 'E';
+}
+
+.box3:nth-child(5)::before {
+  content: 'T';
+}
+
+.box3:nth-child(6)::before {
+  transform: translateY(-100%);
+  content: '';
+}
+
+.button3:hover .box3:before {
+  transform: translateY(0);
+}
+
+
+
+
+/* ---------------------------------------------
+   BASIC LAYOUT
+--------------------------------------------- */
+:root {
+  --sidebar-width: 260px;
+}
+
+#sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
+  height: 100vh;
+  background: #857e61;
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  padding-top: 20px;
+}
+
+/* ---------------------------------------------
+   PROFILE PIC
+--------------------------------------------- */
+.profile-pic {
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border: 0px solid #FFFFFF;
+  display: inline-block;
+}
+
+.profile-pic:hover {
+  box-shadow: 0 8px 22px #7b5f53;
+  transition: box-shadow 0.8s ease;
+}
+
+/* ---------------------------------------------
+   SIDEBAR NAVIGATION
+--------------------------------------------- */
+#sidebar-nav {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+/* FIXED — Ensures full clickable width & proper highlighting */
+#sidebar-nav .nav-link {
+  display: block;              /* FIX: Needed for active highlight to work */
+  width: 100%;                 /* Ensures full width is clickable */
+  padding: 8px 6px;
+  text-align: center;
+  font-family: default;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+#sidebar-nav .nav-link:hover {
+  background-color: #3f332700;
+  color: #3F3327;
+}
+
+/* ---------------------------------------------
+   ACTIVE STATE
+--------------------------------------------- */
+#sidebar-nav .nav-link.active {
+  background-color: #ffffff00;   /* You can change this */
+  color: #3F3327;
+  font-weight: 500;
+  /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.667); */
+  border: 1px solid #3F3327; 
+}
+
+
+
+
+.anim-container {
+
+
+width: 100%;        /* full width inside column */
+  max-width: 450px;   /* optional: prevents it from growing too large */
+  margin: 0 auto; 
+
+  /* width: 270px; */
+   height: 100%;
+  max-height: 280px;
+  min-height: 180px;
+  background: transparent;
+  position: relative;
+  /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.438); */
+  overflow: hidden;
+  border-radius: 10px;
+  border: 0px solid rgb(74, 74, 74);
+  
+}
+
+.anim-card {
+  padding: 18px 18px;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;   /* ← FIX: stack vertical */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* text-transform: uppercase; */
+  /* letter-spacing: 2px; */
+
+  background-color: rgba(265, 255, 255, 0.074);
+  border: 0px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  transition: all ease 0.3s;
+
+  
+
+}
+
+.anim-container::after,
+.anim-container::before {
+  width: 100px;
+  height: 100px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transition: 0.5s linear;
+}
+
+.anim-container::after {
+  top: -20px;
+  left: -20px;
+  background-color: #867e6138;
+  animation: animFirst 5s linear infinite;
+}
+
+.anim-container::before {
+  background-color: #867e6138;
+  top: 70%;
+  left: 70%;
+  animation: animSecond 5s linear infinite;
+  animation-delay: 3s;
+}
+
+.anim-container:hover {
+  box-shadow: 0px 0px 10px rgba(0, 77, 32, 0.432);
+}
+
+.anim-container:hover::after {
+  left: 190px;
+  transform: scale(1.2);
+}
+
+.anim-container:hover::before {
+  left: -10px;
+  transform: scale(1.2);
+}
+
+
+.newtons-cradle {
+ --uib-size: 25px;
+ --uib-speed: 1.2s;
+ --uib-color: #3F3327;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: var(--uib-size);
+ height: var(--uib-size);
+}
+
+.newtons-cradle__dot {
+ position: relative;
+ display: flex;
+ align-items: center;
+ height: 100%;
+ width: 25%;
+ transform-origin: center top;
+}
+
+.newtons-cradle__dot::after {
+ content: '';
+ display: block;
+ width: 100%;
+ height: 25%;
+ border-radius: 50%;
+ background-color: var(--uib-color);
+}
+
+.newtons-cradle__dot:first-child {
+ animation: swing var(--uib-speed) linear infinite;
+}
+
+.newtons-cradle__dot:last-child {
+ animation: swing2 var(--uib-speed) linear infinite;
+}
+
+@keyframes swing {
+ 0% {
+  transform: rotate(0deg);
+  animation-timing-function: ease-out;
+ }
+
+ 25% {
+  transform: rotate(70deg);
+  animation-timing-function: ease-in;
+ }
+
+ 50% {
+  transform: rotate(0deg);
+  animation-timing-function: linear;
+ }
+}
+
+@keyframes swing2 {
+ 0% {
+  transform: rotate(0deg);
+  animation-timing-function: linear;
+ }
+
+ 50% {
+  transform: rotate(0deg);
+  animation-timing-function: ease-out;
+ }
+
+ 75% {
+  transform: rotate(-70deg);
+  animation-timing-function: ease-in;
+ }
+}
+
+
+
+
+.card {
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(238, 238, 238, 0.199);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 15px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 42px;
+  height: 42px;
+  background-color:#3F3327 ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: 0.3s;
+  transform: scale(1.5);
+  border-radius: 15px;
+}
+/* twitter*/
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: 0.3s;
+  transform: scale(1.1);
+  /* border-radius: 15px; */
+}
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: 0.3s;
+  transform: scale(1.1);
+  /* border-radius: 15px; */
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #25d366;
+  transition-duration: 0.3s;
+  transform: scale(1.1);
+  /* border-radius: 15px; */
+}
+
+/* Whatsapp*/
+.containerfive:hover {
+  background-color: #464646;
+  transition-duration: 0.3s;
+  transform: scale(1.1);
+  /* border-radius: 15px; */
+} 
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: 0.3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.card:has(.socialContainer:hover) .socialContainer:not(:hover) {
+  opacity: 0.1;
+}
+
+.pallete {
+
+
+/* CSS HEX */
+--charcoal-brown: #3b413cff;
+--jasmine: #fae289ff;
+--white: #fbfcffff;
+--midnight-blue: #251976ff;
+
+
+}
+
+@media (max-width: 767.98px) {
+  #sidebar {
+    display: none;
+  }
+}
