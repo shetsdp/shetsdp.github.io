@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to Full Version</title>
+    
+    <style>
+        /* Base page styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Modern card container */
+        .checkout-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-top: 5px solid #0070ba; /* PayPal blue accent */
+            box-sizing: border-box;
+        }
+
+        .checkout-card h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .checkout-card p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Bullet points for software benefits */
+        .features {
+            text-align: left;
+            margin-bottom: 35px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .features li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #444;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Green checkmark */
+        .features li::before {
+            content: '✓';
+            color: #28a745;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 12px;
+            background: #e6f4ea;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ensure PayPal iframe fits perfectly */
+        #paypal-container-BMUKU26XVLRHG {
+            width: 100%;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-card">
+        <h2>Unlock the Full Version</h2>
+        <p>Get access to unrestricted simulation capacity, custom build options, and priority installation and technical support.</p>
+        
+
+
+        <!-- PayPal Button Container -->
+        <div id="paypal-container-BMUKU26XVLRHG"></div>
+    </div>
+
+    <!-- PayPal SDK & Render Script -->
+    <script 
+      src="https://www.paypal.com/sdk/js?client-id=BAAGdecyE17Z75IJZSPiG-EtijUulgELQXM8ZJb7xKI7CEnWzuvePtES1jeQ2FY-XC-lL95H1n633nWxiQ&components=hosted-buttons&disable-funding=venmo&currency=USD">
+    </script>
+    <script>
+      paypal.HostedButtons({
+        hostedButtonId: "BMUKU26XVLRHG",
+      }).render("#paypal-container-BMUKU26XVLRHG")
+    </script>
+
+</body>
+</html>
