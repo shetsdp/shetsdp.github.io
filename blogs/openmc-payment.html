@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenMC — Upgrade to Full Version</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      color: #1a1a2e;
+      padding: 2rem 1rem;
+    }
+
+    /* ── Page header ───────────────────────────────────────── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #1a1a2e;
+      letter-spacing: -0.02em;
+    }
+    .page-header p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ── Two-column layout ─────────────────────────────────── */
+    .payment-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+      align-items: flex-start;
+    }
+
+    /* Stack on mobile */
+    @media (max-width: 640px) {
+      .payment-grid {
+        flex-direction: column;
+      }
+      .divider {
+        display: none;
+      }
+    }
+
+    /* ── Card shared styles ─────────────────────────────────── */
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      flex: 1;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 0.5rem;
+    }
+
+    .card > p {
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Features list ─────────────────────────────────────── */
+    .features {
+      list-style: none;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 1.75rem;
+    }
+    .features li {
+      font-size: 0.86rem;
+      color: #444;
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .features li:last-child { border-bottom: none; }
+    .features li::before {
+      content: '✓';
+      color: #28a745;
+      font-weight: 800;
+      font-size: 0.8rem;
+      background: #e6f4ea;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* ── PayPal card ────────────────────────────────────────── */
+    .card-paypal {
+      border-top: 4px solid #0070ba;
+    }
+    .badge-paypal {
+      background: #e8f2fb;
+      color: #0070ba;
+    }
+    #paypal-container-BMUKU26XVLRHG {
+      width: 100%;
+      min-height: 50px;
+    }
+
+    /* ── Vertical divider ───────────────────────────────────── */
+    .divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+    .divider-line {
+      width: 1px;
+      flex: 1;
+      background: #dde2e8;
+    }
+    .divider-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #aaa;
+      letter-spacing: 0.08em;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      padding: 0.5rem 0;
+    }
+
+    /* ── UPI card ───────────────────────────────────────────── */
+    .card-upi {
+      border-top: 4px solid #4CAF50;
+    }
+    .badge-upi {
+      background: #edf7ee;
+      color: #2e7d32;
+    }
+    .upi-qr {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      margin-bottom: 1rem;
+    }
+    .upi-id {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      background: #f4f7f9;
+      border: 1px solid #dde2e8;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1.25rem;
+      width: 100%;
+      word-break: break-all;
+    }
+    .upi-id span { font-weight: 400; color: #555; font-size: 0.78rem; display: block; margin-bottom: 2px; }
+    .btn-upi {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      background: #4CAF50;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      width: 100%;
+      transition: background 0.18s;
+    }
+    .btn-upi:hover { background: #388e3c; }
+    .upi-note {
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+      color: #999;
+      line-height: 1.5;
+    }
+
+    /* ── Footer note ────────────────────────────────────────── */
+    .footer-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Unlock the Full Version of OpenMC</h1>
+    <p>Choose your preferred payment method below</p>
+  </header>
+
+  <div class="payment-grid">
+
+    <!-- ── PayPal Card ── -->
+    <div class="card card-paypal">
+      <span class="card-badge badge-paypal">PayPal · USD</span>
+      <h2>Pay via PayPal</h2>
+      <p>Secure international payment. Credit card accepted — no PayPal account required.</p>
+      <ul class="features">
+        <li>Unlimited particles per batch</li>
+        <li>Unlimited batches per simulation</li>
+        <li>Custom build options</li>
+        <li>Priority installation support</li>
+      </ul>
+      <div id="paypal-container-BMUKU26XVLRHG"></div>
+    </div>
+
+    <!-- ── Divider ── -->
+    <div class="divider" aria-hidden="true">
+      <div class="divider-line"></div>
+      <span class="divider-label">OR</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ── UPI Card ── -->
+    <div class="card card-upi">
+      <span class="card-badge badge-upi">UPI · India</span>
+      <h2>Pay via UPI</h2>
+      <p>Scan the QR code or tap the button to pay directly from any UPI app.</p>
+      <ul class="features">
+        <li>Unlimited particles per batch</li>
+        <li>Unlimited batches per simulation</li>
+        <li>Custom build options</li>
+        <li>Priority installation support</li>
+      </ul>
+      <img class="upi-qr" src="/assets/8971237086@upi.png" alt="UPI QR code for 8971237086@upi">
+      <div class="upi-id">
+        <span>UPI ID</span>
+        8971237086@upi
+      </div>
+      <a class="btn-upi" href="upi://pay?pa=8971237086@upi&pn=OpenMC" rel="noopener">
+        Pay with UPI App
+      </a>
+      <p class="upi-note">If the QR doesn't load, ensure <code>/assets/8971237086@upi.png</code> exists on the server.</p>
+    </div>
+
+  </div>
+
+  <p class="footer-note">Payments are processed securely. Contact support if you have any issues.</p>
+
+  <!-- PayPal SDK -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAAGdecyE17Z75IJZSPiG-EtijUulgELQXM8ZJb7xKI7CEnWzuvePtES1jeQ2FY-XC-lL95H1n633nWxiQ&components=hosted-buttons&disable-funding=venmo&currency=USD">
+  </script>
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "BMUKU26XVLRHG",
+    }).render("#paypal-container-BMUKU26XVLRHG");
+  </script>
+
+</body>
+</html>
